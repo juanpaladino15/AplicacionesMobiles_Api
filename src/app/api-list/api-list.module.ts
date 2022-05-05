@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ApiListPageRoutingModule } from './api-list-routing.module';
 
 import { ApiListPage } from './api-list.page';
-import { DepositModalComponent } from '../deposit-modal/deposit-modal.component';
+import { InfoModalComponent } from '../info-modal/info-modal.component';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { DepositModalComponent } from '../deposit-modal/deposit-modal.component'
     IonicModule,
     ApiListPageRoutingModule
   ],
-  declarations: [ApiListPage, DepositModalComponent],
-  entryComponents: [DepositModalComponent]
+  declarations: [ApiListPage, InfoModalComponent],
+  entryComponents: [InfoModalComponent]
 })
 export class ApiListPageModule {}

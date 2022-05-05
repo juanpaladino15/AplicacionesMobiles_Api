@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
-import { DepositModalComponent } from '../deposit-modal/deposit-modal.component';
+import { InfoModalComponent } from '../info-modal/info-modal.component';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class ApiListPage implements OnInit {
 
   async openModal(id:Number) {
     const modal = await this.modalCtrl.create({
-      component: DepositModalComponent,
+      component: InfoModalComponent,
       componentProps: {
         id: id
       }
