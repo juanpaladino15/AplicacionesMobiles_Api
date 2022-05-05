@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ModalController } from '@ionic/angular';
+import { DepositModalComponent } from '../deposit-modal/deposit-modal.component';
 
 
 @Component({
@@ -12,7 +14,8 @@ export class ApiListPage implements OnInit {
   characters = []
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -20,6 +23,17 @@ export class ApiListPage implements OnInit {
       .subscribe(res => {
         this.characters = res.results;
       })
+  }
+
+  async openModal(id:Number) {
+    const modal = await this.modalCtrl.create({
+      component: DepositModalComponent,
+      componentProps: {
+        id: id
+      }
+    });
+
+    await modal.present();
   }
 
 }
