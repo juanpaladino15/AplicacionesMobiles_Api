@@ -36,4 +36,8 @@ export class ApiListPage implements OnInit {
     await modal.present();
   }
 
+  onDelete(id:Number){
+    
+  }
+
 }
