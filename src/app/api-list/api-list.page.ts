@@ -40,11 +40,11 @@ export class ApiListPage implements OnInit {
   async onDelete(id:number, slidingItem){ 
     const index= this.characters.findIndex(element => element.id == id)
     const alert = await this.alertCtrl.create({
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      header: 'Eliminar',
+      message: '¿Desea eliminar el elemento?',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           id: 'cancel-button',
           handler: () => {
@@ -52,7 +52,7 @@ export class ApiListPage implements OnInit {
             console.log('Confirm Cancel');
           }
         }, {
-          text: 'Okay',
+          text: 'Eliminar',
           id: 'confirm-button',
           handler: () => {
             this.characters.splice(index, 1)
