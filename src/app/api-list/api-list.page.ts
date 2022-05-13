@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertController, ModalController } from '@ionic/angular';
 import { InfoModalComponent } from '../info-modal/info-modal.component';
+import { Toast } from '@capacitor/toast';
 
 
 @Component({
@@ -12,11 +13,16 @@ import { InfoModalComponent } from '../info-modal/info-modal.component';
 export class ApiListPage implements OnInit {
 
   characters = []
+  showHelloToast = async () => {
+    await Toast.show({
+      text: 'Hello!',
+    });
+  };
 
   constructor(
     private http: HttpClient,
     private modalCtrl: ModalController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
   ) { }
 
   ngOnInit() {
@@ -33,8 +39,9 @@ export class ApiListPage implements OnInit {
         id: id
       }
     });
-
+    
     await modal.present();
+    
   }
 
   async onDelete(id:number, slidingItem){ 
@@ -56,6 +63,9 @@ export class ApiListPage implements OnInit {
           id: 'confirm-button',
           handler: () => {
             this.characters.splice(index, 1)
+            Toast.show({
+              text: 'Personaje eliminado.'
+            })
             console.log('Confirm Okay');
           }
         }
