@@ -15,10 +15,10 @@ const routes: Routes = [
     path: 'api-list',
     loadChildren: () => import('./api-list/api-list.module').then( m => m.ApiListPageModule)
   },
-  {
-    path: 'perfil/:id',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
+  // {
+  //   path: 'perfil/:id',
+  //   loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  // },
 ];
 
 @NgModule({
